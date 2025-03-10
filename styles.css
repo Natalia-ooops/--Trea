@@ -1,0 +1,160 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'PingFang SC', 'Microsoft YaHei', sans-serif;
+    background-color: #121212;
+    height: 100vh;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.container {
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    perspective: 1000px;
+    overflow: hidden;
+    background: linear-gradient(135deg, #1a1a1a 0%, #2c2c2c 100%);
+}
+
+.cards-container {
+    position: relative;
+    width: 320px;
+    height: 500px;
+    transform-style: preserve-3d;
+}
+
+.card {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    border-radius: 20px;
+    background-color: #222;
+    overflow: hidden;
+    cursor: grab;
+    transition: transform 0.5s ease, opacity 0.5s ease, box-shadow 0.5s ease;
+    transform-origin: center bottom;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+    user-select: none;
+    touch-action: none;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.card:active {
+    cursor: grabbing;
+}
+
+.card-image {
+    width: 100%;
+    height: 65%;
+    object-fit: cover;
+    border-top-left-radius: 20px;
+    border-top-right-radius: 20px;
+}
+
+.card-content {
+    padding: 20px;
+    height: 35%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    background-color: #222;
+}
+
+.card-title {
+    font-size: 24px;
+    font-weight: 600;
+    margin-bottom: 10px;
+    color: #e0e0e0;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.card-quote {
+    font-size: 16px;
+    line-height: 1.5;
+    color: #aaa;
+    font-weight: 300;
+}
+
+.card-button {
+    display: inline-block;
+    padding: 8px 16px;
+    background-color: rgba(255, 255, 255, 0.1);
+    color: #e0e0e0;
+    border-radius: 20px;
+    font-size: 14px;
+    text-decoration: none;
+    margin-top: 10px;
+    align-self: flex-start;
+    transition: all 0.3s ease;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.card-button:hover {
+    background-color: rgba(255, 255, 255, 0.2);
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+}
+
+/* 卡片堆叠效果 */
+.card:nth-child(1) {
+    z-index: 5;
+}
+
+.card:nth-child(2) {
+    transform: translateY(15px) scale(0.95);
+    opacity: 0.9;
+    z-index: 4;
+}
+
+.card:nth-child(3) {
+    transform: translateY(30px) scale(0.9);
+    opacity: 0.8;
+    z-index: 3;
+}
+
+.card:nth-child(4) {
+    transform: translateY(45px) scale(0.85);
+    opacity: 0.7;
+    z-index: 2;
+}
+
+.card:nth-child(5) {
+    transform: translateY(60px) scale(0.8);
+    opacity: 0.6;
+    z-index: 1;
+}
+
+/* 拖动时的样式 */
+.card.dragging {
+    transition: none;
+}
+
+/* 消失动画 */
+.card.disappearing {
+    transform: translateY(-100px) scale(0.8) rotate(-5deg);
+    opacity: 0;
+}
+
+/* 自定义阴影效果 */
+.card-shadow {
+    position: absolute;
+    bottom: -30px;
+    left: 10%;
+    width: 80%;
+    height: 30px;
+    border-radius: 50%;
+    background: rgba(0, 0, 0, 0.1);
+    filter: blur(10px);
+    z-index: -1;
+    transition: all 0.5s ease;
+}
