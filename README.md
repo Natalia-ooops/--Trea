@@ -1,7 +1,8 @@
 
 # Card Interaction Animation Showcase 🃏✨
 
-一个基于Trea和船仓提示词生成的卡片交互动画网站 | [在线演示]([#](https://natalia-ooops.github.io/Trea-Card-Interaction-Animation-Showcase/)) 
+一个基于Trea和船仓提示词生成的卡片交互动画网站 | [在线演示]([https://natalia-ooops.github.io](https://natalia-ooops.github.io/Trea-Card-Interaction-Animation-Showcase/)) 🔗<br>
+*部署于GitHub Pages，可能需要5-10秒冷启动*
 
 
 ## 🌟 项目亮点
